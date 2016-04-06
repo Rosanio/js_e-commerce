@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   currentUser: Ember.inject.service(),
+  shoppingCart: Ember.inject.service(),
+  
   actions: {
-    addItem(params){
-      this.sendAction("addItem", params);
-    }
+    addStoreItem(params){
+      this.sendAction("addStoreItem", params);
+    },
   }
 });

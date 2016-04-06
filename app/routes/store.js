@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    addItem(params){
+    addStoreItem(params){
       var newItem = this.store.createRecord('item', params);
       var user = params.seller;
       user.get('sellingHistory').addObject(newItem);
@@ -14,6 +14,7 @@ export default Ember.Route.extend({
         user.save();
       });
       this.transitionTo('store', params.seller.id);
-    }
+    },
+
   }
 });

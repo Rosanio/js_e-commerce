@@ -1,4 +1,5 @@
 {{log currentUser.client}}
+<h2>Total: {{shoppingCart.subTotal}}</h2>
 <div class="row">
   <div class="col-md-8">
     <ul class="list-group">
@@ -9,7 +10,7 @@
   </div>
   <div class="col-md-4">
     {{#if (and (eq currentUser.client owner) currentUser.client.seller)}}
-      {{add-item user=owner addItem="addItem"}}
+      {{add-item user=owner addItem="addStoreItem"}}
     {{/if}}
   </div>
 </div>
