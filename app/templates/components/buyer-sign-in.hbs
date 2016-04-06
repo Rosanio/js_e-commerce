@@ -1,1 +1,11 @@
-{{yield}}
+<form class="form-inline" >
+  <div class="form-group">
+    <label for="usernameBuyer">Username</label>
+    {{input class="form-control" value=username id="usernameBuyer"}}
+  </div>
+  <div class="form-group">
+    <label for="passwordBuyer">Password</label>
+    {{input type="password" class="form-control" value=password id="passwordBuyer"}}
+  </div>
+  <button type="button" class="btn btn-default" {{action "buyerLogIn"}}>Log In</button>
+</form>

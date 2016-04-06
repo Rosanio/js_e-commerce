@@ -12,22 +12,30 @@ export default Ember.Route.extend({
 
   actions: {
 
-    createSeller(params) {
-      var newSeller = this.store.createRecord('user', params);
-      newSeller.save();
-      this.get('currentUser').logIn(newSeller);
-      this.transitionTo('login');
+    createUser(params) {
+      var newUser = this.store.createRecord('user', params);
+      newUser.save();
+      this.get('currentUser').logIn(newUser);
+      if(newUser.get('seller')){
+        this.transitionTo('store', newUser.id);
+      } else {
+        this.transitionTo('index');
+      }
     },
 
     signIn(params){
       var model = this.currentModel;
-      console.log(model.allUsers.get("length"));
       model.allUsers.forEach(function(user){
         if(user.get("username") === params.username && user.get("password") === params.password){
           model.currentUser.logIn(user);
-          console.log(user);
         }
       });
+      if(model.currentUser.client.get("seller")){
+        this.transitionTo('store', model.currentUser.client.get('id'));
+      } else {
+        this.transitionTo('index');
+      }
+
     }
   }
 });

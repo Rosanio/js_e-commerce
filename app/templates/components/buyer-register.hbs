@@ -1,1 +1,51 @@
-{{yield}}
+{{#if newBuyerShow}}
+  <form class="form-horizontal" >
+    <div class="form-group">
+      <label>* denotes required field</label>
+    </div>
+
+    <div class="form-group">
+      <label for="usernameNew" class="col-sm-2 control-label">*Username</label>
+      <div class="col-sm-10">
+        {{input type="text" class="form-control" id="usernameNew" value=username placeholder="User Name"}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="passwordNew" class="col-sm-2 control-label">*Password</label>
+      <div class="col-sm-10">
+        {{input type="password" class="form-control" id="passwordNew" value=password placeholder="Password"}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstNameNew" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        {{input type="text" class="form-control" id="firstNameNew" value=firstName placeholder="Jane"}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastNameNew" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        {{input type="text" class="form-control" id="lastNameNew" value=lastName placeholder="Doe"}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="addressNew" class="col-sm-2 control-label">Address</label>
+      <div class="col-sm-10">
+        {{input type="text" class="form-control" id="addressNew" value=address placeholder="123 Main Street, Portland"}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-default" {{action 'createBuyer'}}>Sign Up</button>
+      </div>
+    </div>
+
+  </form>
+{{else}}
+  <button type="button" class="btn btn-lg btn-success" {{action "newBuyerShow"}}>Sign Up as a New Buyer</button>
+{{/if}}
