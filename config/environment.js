@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'pdx-bay',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
-    firebase: 'https://YOUR-FIREBASE-NAME.firebaseio.com/',
+    firebase: 'https://pdx-bay.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
