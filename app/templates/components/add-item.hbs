@@ -1,0 +1,23 @@
+<form >
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input type="text" value=name class="form-control" id="name"}}
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    {{textarea type="text" value=description class="form-control" id="description"}}
+  </div>
+  <div class="form-group">
+    <label for="cost">Price</label>
+    {{input type="number" value=cost class="form-control" id="cost"}}
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    {{input type="number" value=quantity class="form-control" id="quantity"}}
+  </div>
+  <div class="form-group">
+    <label for="picture">Picture URL</label>
+    {{input type="url" value=picture class="form-control" id="picture"}}
+  </div>
+  <button type="button" class="btn btn-primary" {{action 'addItem'}}>Add Item</button>
+</form>
