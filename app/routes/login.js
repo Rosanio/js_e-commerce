@@ -20,9 +20,14 @@ export default Ember.Route.extend({
     },
 
     signIn(params){
-      var model = this.currentModel
-      console.log(model);
-
+      var model = this.currentModel;
+      console.log(model.allUsers.get("length"));
+      model.allUsers.forEach(function(user){
+        if(user.get("username") === params.username && user.get("password") === params.password){
+          model.currentUser.logIn(user);
+          console.log(user);
+        }
+      });
     }
   }
 });
