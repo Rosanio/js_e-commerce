@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-5">
+    <div class="list-group">
+      {{#each shoppingCart.cart as |item|}}
+        {{item-tile class="list-group-item" item=item notInCart=notInCart}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-md-7">
+    <h4>Items: {{shoppingCart.cart.length}}</h4>
+    <h2>Total: ${{shoppingCart.subTotal}}</h2>
+
+  </div>
+</div>

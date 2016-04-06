@@ -5,9 +5,12 @@
       <img src={{item.picture}} alt={{item.name}}>
       <p class="list-group-item-text">{{item.description}}</p>
     {{/if}}
+    {{#if (and showDetails (not notInCart))}}
+      <button type="button" class="btn btn-danger" {{action 'removeFromCart' item}}>Remove From Cart</button>
+    {{/if}}
   </div>
   <div class="col-md-4">
-    {{#if showDetails}}
+    {{#if (and showDetails notInCart)}}
       <button type="button" class="btn btn-default" {{action 'addToCart' item}}>Add to Cart</button>
     {{/if}}
   </div>

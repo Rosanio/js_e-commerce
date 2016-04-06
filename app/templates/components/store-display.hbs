@@ -4,7 +4,7 @@
   <div class="col-md-8">
     <ul class="list-group">
       {{#each owner.sellingHistory as |item|}}
-        {{item-tile class="list-group-item" item=item}}
+        {{item-tile class="list-group-item" item=item notInCart=notInCart}}
       {{/each}}
     </ul>
   </div>
