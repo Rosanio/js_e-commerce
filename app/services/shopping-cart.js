@@ -8,7 +8,8 @@ export default Ember.Service.extend({
   },
 
   remove(item){
-    this.get('cart').popObject(item);
+    var location = this.get('cart').indexOf(item);
+    this.get('cart').removeAt(location);
   },
 
   subTotal: Ember.computed('cart.@each.item', function() {
