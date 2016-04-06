@@ -25,15 +25,29 @@ export default Ember.Route.extend({
 
     signIn(params){
       var model = this.currentModel;
+      var routing;
+
       model.allUsers.forEach(function(user){
         if(user.get("username") === params.username && user.get("password") === params.password){
           model.currentUser.logIn(user);
+          console.log(model.currentUser.client);
+          if(model.currentUser.client.get("seller")){
+            routing = 'store';
+            //route.transitionTo('store', model.currentUser.client.get('id'));
+          } else {
+            console.log('it works');
+            routing = 'index';
+            //route.transitionTo('index');
+          }
         }
       });
-      if(model.currentUser.client.get("seller")){
-        this.transitionTo('store', model.currentUser.client.get('id'));
+      if(routing === 'store'){
+        this.transitionTo(routing, model.currentUser.client.get('id'));
+      } else if (routing === 'index') {
+        this.transitionTo(routing);
       } else {
-        this.transitionTo('index');
+        alert("You made a typo!"); // change this line
+        this.transitionTo('login');
       }
 
     }

@@ -1,4 +1,9 @@
-{{#each model as |user|}}
-  {{#link-to 'store' user.id}}{{user.username}}{{/link-to}}
-{{/each}}
-{{log currentUser.client}}
+<div class="container">
+  <div class="list-group">
+    {{#each model as |user|}}
+      {{#link-to 'store' user.id class="list-group-item"}}{{user.username}}{{/link-to}}
+    {{/each}}
+  </div>
+</div>
+
+{{!-- {{log currentUser.client}} --}}

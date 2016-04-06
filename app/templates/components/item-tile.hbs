@@ -1,0 +1,6 @@
+
+<h4 class="list-group-item-heading" {{action "showDetails"}}>{{item.name}} - ${{item.cost}}</h4>
+{{#if showDetails}}
+<img src={{item.picture}} alt={{item.name}}>
+<p class="list-group-item-text">{{item.description}}</p>
+{{/if}}
