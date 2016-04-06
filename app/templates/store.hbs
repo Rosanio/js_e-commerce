@@ -1,14 +1,2 @@
 <h1>Store for {{model.username}}</h1>
-<div class="row">
-  <div class="col-md-8">
-    <ul>
-      {{#each model.sellingHistory as |item|}}
-        <li>{{item.name}}</li>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="col-md-4">
-    display if user = owner
-    {{add-item user=model addItem="addItem"}}
-  </div>
-</div>
+{{store-display owner=model}}

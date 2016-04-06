@@ -1,0 +1,15 @@
+{{log currentUser.client}}
+<div class="row">
+  <div class="col-md-8">
+    <ul>
+      {{#each owner.sellingHistory as |item|}}
+        <li>{{item.name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col-md-4">
+    {{#if (eq currentUser.client owner)}}
+      {{add-item user=owner addItem="addItem"}}
+    {{/if}}
+  </div>
+</div>
