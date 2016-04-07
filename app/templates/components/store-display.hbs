@@ -2,14 +2,24 @@
 <div class="row">
   <div class="col-md-8">
     <ul class="list-group">
-      {{#each owner.sellingHistory as |item|}}
+      {{#each sortedItems as |item|}}
         {{item-tile class="list-group-item" item=item notInCart=notInCart}}
       {{/each}}
     </ul>
   </div>
   <div class="col-md-4">
-    {{#if (and (eq currentUser.client owner) currentUser.client.seller)}}
-      {{add-item user=owner addItem="addStoreItem"}}
+    {{#if (eq currentUser.client owner)}}
+      {{#if owner.seller}}
+        {{add-item user=owner addItem="addStoreItem"}}
+      {{/if}}
+
+      <h4>Buying History</h4>
+      {{#each owner.buyingHistory as |item|}}
+        {{item-tile class="list-group-item" item=item notInCart=true}}
+      {{/each}}
+
+      <h4>Account Management</h4>
+      {{account-management user=currentUser.client editUser="editUser"}}
     {{/if}}
   </div>
 </div>

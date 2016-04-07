@@ -15,6 +15,18 @@ export default Ember.Route.extend({
       });
       this.transitionTo('store', params.seller.id);
     },
+    editUser(params) {
+      var user = this.currentModel;
+      console.log(params);
+      console.log(user);
+      Object.keys(params).forEach(function(key) {
+        if(params[key]!==undefined) {
+          user.set(key, params[key]);
+        }
+      });
+      user.save();
+      this.transitionTo('store', user.id);
+    },
 
   }
 });

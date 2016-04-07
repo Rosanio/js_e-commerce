@@ -1,0 +1,6 @@
+<h4>Recently Added</h4>
+<div class="list-group">
+  {{#each recents as |item|}}
+    {{item-tile class="list-group-item" item=item notInCart=true}}
+  {{/each}}
+</div>

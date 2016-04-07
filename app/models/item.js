@@ -7,6 +7,7 @@ export default DS.Model.extend({
   quantity: DS.attr('number'),
   picture: DS.attr(),
   seller: DS.belongsTo('user', {inverse:"sellingHistory"}, {async:true}),
-  buyer: DS.hasMany('user', {inverse:"buyingHistory"}, {async:true})
+  buyer: DS.hasMany('user', {inverse:"buyingHistory"}, {async:true}),
+
 
 });
