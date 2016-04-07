@@ -8,11 +8,11 @@ export default Ember.Component.extend({
     },
     editUser() {
       var params = {
-        username: this.get('username'),
-        password: this.get('password'),
-        firstName: this.get('firstName'),
-        lastName: this.get('lastName'),
-        address: this.get('address'),
+        username: this.get('user.username'),
+        password: this.get('user.password'),
+        firstName: this.get('user.firstName'),
+        lastName: this.get('user.lastName'),
+        address: this.get('user.address'),
       };
       this.set('updateUser', false);
       this.sendAction('editUser', params);

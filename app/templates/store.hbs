@@ -1,2 +1,3 @@
-<h1>{{model.firstName}} {{model.lastName}}'s Store</h1>
-{{store-display owner=model addStoreItem="addStoreItem" editUser="editUser" updateItem="updateItem"}}
+{{log model.parseAddress}}
+<h1>{{model.owner.firstName}} {{model.owner.lastName}}'s Store</h1>
+{{store-display owner=model.owner addStoreItem="addStoreItem" editUser="editUser" updateItem="updateItem"}}
