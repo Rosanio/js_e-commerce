@@ -23,6 +23,7 @@ export default Ember.Component.extend({
       }
     },
     updateItem(params){
+      this.set('showUpdateForm', false);
       this.sendAction('updateItem', params, this.get('itemToEdit'));
     }
   }
