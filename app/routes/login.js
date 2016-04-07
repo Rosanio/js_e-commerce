@@ -1,7 +1,8 @@
 import Ember from 'ember';
+import config from '../config/environment';
+
 
 export default Ember.Route.extend({
-
   currentUser: Ember.inject.service(),
   shoppingCart: Ember.inject.service(),
   model: function(){
@@ -13,10 +14,21 @@ export default Ember.Route.extend({
   },
 
   actions: {
-
     createUser(params) {
       var newUser = this.store.createRecord('user', params);
+      this.currentModel.shoppingCart.empty();
       newUser.save();
+      if(params.address !== undefined){
+        var address = params.address.replace(' ', '+');
+        var key = config.myApiKey;
+        var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + key;
+        Ember.$.getJSON(url).then(function(responseJSON) {
+          var location = responseJSON.results[0].geometry.location;
+          newUser.set('latitude', location.lat);
+          newUser.set('longitude', location.lng);
+          newUser.save();
+        });
+      }
       this.get('currentUser').logIn(newUser);
       if(newUser.get('seller')){
         this.transitionTo('store', newUser.id);

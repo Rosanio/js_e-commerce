@@ -12,6 +12,8 @@
           {{#link-to 'store' user.id class="list-group-item"}}{{user.username}}{{/link-to}}
         {{/each}}
       </div>
+
+      {{#link-to 'store' model.currentUser.client.id type="button" class="btn btn-default btn-block"}}My Account{{/link-to}}
     </div>
   </div>
 

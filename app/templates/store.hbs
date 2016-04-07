@@ -1,3 +1,7 @@
-{{log model.parseAddress}}
-<h1>{{model.owner.firstName}} {{model.owner.lastName}}'s Store</h1>
+{{#if model.owner.seller}}
+  <h1>{{model.owner.firstName}} {{model.owner.lastName}}'s Store</h1>
+{{else}}
+  <h1>{{model.owner.firstName}} {{model.owner.lastName}}'s Account</h1>
+
+{{/if}}
 {{store-display owner=model.owner addStoreItem="addStoreItem" editUser="editUser" updateItem="updateItem"}}

@@ -15,7 +15,7 @@ export default Ember.Component.extend({
         lastName: this.get('lastName'),
         address: this.get('address'),
         seller: true,
-        buyer: false,
+        buyer: true,
       };
       this.set('newSellerShow', false);
       this.sendAction('createSeller', params);
