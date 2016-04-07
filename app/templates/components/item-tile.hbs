@@ -5,13 +5,22 @@
       <img src={{item.picture}} alt={{item.name}}>
       <p class="list-group-item-text">{{item.description}}</p>
     {{/if}}
-    {{#if (and showDetails (not notInCart))}}
+    {{#if showDetails}}
+      {{#if (not notInCart)}}
       <button type="button" class="btn btn-danger" {{action 'removeFromCart' item}}>Remove From Cart</button>
+      {{/if}}
     {{/if}}
   </div>
   <div class="col-md-4">
-    {{#if (and showDetails notInCart)}}
-      <button type="button" class="btn btn-default" {{action 'addToCart' item}}>Add to Cart</button>
+    {{#if showDetails}}
+      {{#if (and notInCart item.quantity)}}
+        <button type="button" class="btn btn-default" {{action 'addToCart' item}}>Add to Cart</button>
+      {{else}}
+        <h2>Sold Out!</h2>
+      {{/if}}
+      <hr>
+      <h4 class="list-group-item-text">Sold by {{item.seller.username}}</h4>
+      <h5 class="list-group-item-text">{{item.quantity}} remaining</h5>
     {{/if}}
   </div>
 </div>

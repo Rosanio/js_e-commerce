@@ -4,11 +4,13 @@ export default Ember.Service.extend({
   cart: [],
 
   add(item) {
+    item.set('quantity', item.get('quantity')-1);
     this.get('cart').pushObject(item);
   },
 
   remove(item){
     var location = this.get('cart').indexOf(item);
+    item.set('quantity', item.get('quantity') + 1);
     this.get('cart').removeAt(location);
   },
 
