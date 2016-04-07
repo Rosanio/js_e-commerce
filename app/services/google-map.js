@@ -7,5 +7,33 @@ export default Ember.Service.extend({
   },
   center(latitude, longitude) {
     return new this.googleMaps.LatLng(latitude, longitude);
+  },
+
+  displayRoute(map){
+    return new this.googleMaps.DirectionsRenderer({
+      map: map
+    });
+  },
+
+  getRequest(clientLocation, ownerLocation){
+    var request = {
+      destination: ownerLocation,
+      origin: clientLocation,
+      travelMode: this.googleMaps.TravelMode.DRIVING
+    };
+    return request;
+  },
+
+  getDirections(directionsDisplay, request){
+    var directionsService = new this.googleMaps.DirectionsService();
+    console.log(this);
+    var google = this.googleMaps;
+    directionsService.route(request, function(response, status){
+      console.log(google);
+      if (status === google.DirectionsStatus.OK){
+        directionsDisplay.setDirections(response);
+      }
+    });
   }
+
 });
