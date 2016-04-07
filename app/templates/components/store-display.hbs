@@ -9,6 +9,7 @@
       <hr>
       {{edit-item item=itemToEdit updateItem="updateItem"}}
     {{/if}}
+    {{google-map owner=owner}}
   </div>
   <div class="col-md-5">
     <h2>Cart Total: ${{currency shoppingCart.subTotal}}</h2>
@@ -28,5 +29,3 @@
     {{/if}}
   </div>
 </div>
-
-{{google-map owner=owner}}

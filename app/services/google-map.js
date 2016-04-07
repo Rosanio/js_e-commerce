@@ -26,14 +26,21 @@ export default Ember.Service.extend({
 
   getDirections(directionsDisplay, request){
     var directionsService = new this.googleMaps.DirectionsService();
-    console.log(this);
     var google = this.googleMaps;
     directionsService.route(request, function(response, status){
-      console.log(google);
       if (status === google.DirectionsStatus.OK){
         directionsDisplay.setDirections(response);
       }
     });
+  },
+
+  placeMarker(map, ownerLocation) {
+    var marker = new this.googleMaps.Marker({
+      map: map,
+      position: ownerLocation,
+      title: "Seller Location"
+    });
+    return marker;
   }
 
 });
