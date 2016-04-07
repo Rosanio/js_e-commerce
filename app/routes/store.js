@@ -20,8 +20,6 @@ export default Ember.Route.extend({
     },
     editUser(params) {
       var user = this.currentModel;
-      console.log(params);
-      console.log(user);
       Object.keys(params).forEach(function(key) {
         if(params[key]!==undefined) {
           user.set(key, params[key]);
@@ -31,13 +29,11 @@ export default Ember.Route.extend({
       this.transitionTo('store', user.id);
     },
     updateItem(params, item){
-      console.log(params);
       Object.keys(params).forEach(function(key) {
         if(params[key]!==undefined && params[key] !== '' ) {
           item.set(key, params[key]);
         }
       });
-      console.log(item);
       item.save();
       this.transitionTo('store', this.currentModel.id);
     }

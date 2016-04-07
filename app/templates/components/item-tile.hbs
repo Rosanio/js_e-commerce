@@ -1,14 +1,20 @@
 <div class="row">
-  <div class="col-md-8">
-    <h4 class="list-group-item-heading" {{action "showDetails" item}}>{{item.name}} - ${{currency item.cost}}</h4>
+  <div class="col-md-12">
+    <h4 class="list-group-item-heading clickable" {{action "showDetails" item}}>{{item.name}} - ${{currency item.cost}}</h4>
+  </div>
+  <div class="col-md-4">
     {{#if showDetails}}
       <img src={{item.picture}} alt={{item.name}}>
-      <p class="list-group-item-text">{{item.description}}</p>
     {{/if}}
     {{#if showDetails}}
       {{#if (not notInCart)}}
-      <button type="button" class="btn btn-danger" {{action 'removeFromCart' item}}>Remove From Cart</button>
+      <button type="button" class="btn btn-default" {{action 'removeFromCart' item}}>Remove From Cart</button>
       {{/if}}
+    {{/if}}
+  </div>
+  <div class="col-md-4">
+    {{#if showDetails}}
+      <p class="list-group-item-text">{{item.description}}</p>
     {{/if}}
   </div>
   <div class="col-md-4">

@@ -6,6 +6,8 @@ export default DS.Model.extend({
   firstName: DS.attr(), //optional
   lastName: DS.attr(), //optional
   address: DS.attr(), //optional
+  latitude: DS.attr('number'), //created from address
+  longitude: DS.attr('number'),
   seller: DS.attr('boolean'),
   buyer: DS.attr('boolean'),
   sellingHistory: DS.hasMany('item', {inverse:"seller"}, {async:true}), //add items when posted to store, not when sold

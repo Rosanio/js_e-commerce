@@ -9,7 +9,10 @@ export default Ember.Component.extend({
   actions: {
     showDetails(item){
       this.toggleProperty('showDetails');
-      this.sendAction('detailsToggle', this.get('showDetails'), item);
+      console.log(this.get('currentUser').get('client').username);
+      if(this.get('currentUser').get('client').username !== 'Guest') {
+        this.sendAction('detailsToggle', this.get('showDetails'), item);
+      }
     },
     addToCart(item) {
       this.get('shoppingCart').add(item);

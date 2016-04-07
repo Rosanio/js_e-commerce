@@ -2,7 +2,7 @@ $blue: #666A86;
 $blackish: #272932;
 $tan: #FFE4BF;
 $seafoam: #B2C9AB;
-$yellow: #F9EA9A;
+$offwhite: #EAFDF8;
 $seafoamdark: #73826E;
 
 
@@ -14,8 +14,18 @@ img {
   max-width: 250px;
 }
 
+hr {
+  border-top: 1px solid $offwhite;
+}
+
 body {
   background-color: $tan;
+  color: $blackish;
+  margin-bottom: 25px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $blackish;
 }
 
 .jumbotron {
@@ -46,7 +56,47 @@ body {
         color: $seafoamdark;
       }
     }
-
   }
+}
 
+.list-group-item, a.list-group-item, .list-group-item-heading, .list-group-item-text{
+  background-color: $blackish;
+  border-color: $offwhite;
+  color: $seafoam;
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $seafoam;
+  }
+}
+
+.list-group-item-text {
+  font-size: 125%;
+}
+
+a.list-group-item:hover {
+  color: $blackish;
+  background-color: $seafoam;
+}
+
+.form-control {
+  background-color: $offwhite;
+  border-color: $blue;
+}
+
+.btn {
+  border-color: $blue;
+}
+
+.btn-default {
+  background-color: $blue;
+  color: $offwhite;
+}
+
+.btn-default:hover, .btn-default:active, .btn-default:focus {
+  background-color: $blackish;
+  color: $offwhite;
+}
+
+.clickable:hover {
+  color: $seafoamdark;
+  cursor: pointer;
 }

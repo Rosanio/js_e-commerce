@@ -1,6 +1,5 @@
-<h2>Total: ${{shoppingCart.subTotal}}</h2>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-7">
     <ul class="list-group">
       {{#each sortedItems as |item|}}
         {{item-tile class="list-group-item" item=item notInCart=notInCart detailsToggle="detailsToggle"}}
@@ -11,7 +10,9 @@
       {{edit-item item=itemToEdit updateItem="updateItem"}}
     {{/if}}
   </div>
-  <div class="col-md-4">
+  <div class="col-md-5">
+    <h2>Cart Total: ${{currency shoppingCart.subTotal}}</h2>
+    <hr>
     {{#if (eq currentUser.client owner)}}
       {{#if owner.seller}}
         {{add-item user=owner addItem="addStoreItem"}}
