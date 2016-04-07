@@ -5,6 +5,9 @@ export default Ember.Component.extend({
   currentUser: Ember.inject.service(),
   notInCart: false,
   actions:{
+    checkout(){
+      this.sendAction("checkout");
+    }
 
   }
 });

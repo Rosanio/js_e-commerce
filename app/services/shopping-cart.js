@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   cart: [],
+  store: Ember.inject.service(),
 
   add(item) {
     item.set('quantity', item.get('quantity')-1);
@@ -24,5 +25,15 @@ export default Ember.Service.extend({
 
   empty() {
     this.get('cart').setObjects([]);
+  },
+
+  finalSale(user){
+    var buyer = user.get('client');
+    this.get('cart').forEach(function(item){
+      buyer.get('buyingHistory').addObject(item);
+      buyer.save().then(function(){
+        return item.save();
+      });
+    });
   }
 });
