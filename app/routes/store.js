@@ -4,6 +4,9 @@ export default Ember.Route.extend({
   model(params){
     return this.store.findRecord('user', params.user_id);
   },
+  afterModel(model){
+    return model.get('sellingHistory');
+  },
 
   actions: {
     addStoreItem(params){
@@ -27,6 +30,17 @@ export default Ember.Route.extend({
       user.save();
       this.transitionTo('store', user.id);
     },
+    updateItem(params, item){
+      console.log(params);
+      Object.keys(params).forEach(function(key) {
+        if(params[key]!==undefined && params[key] !== '' ) {
+          item.set(key, params[key]);
+        }
+      });
+      console.log(item);
+      item.save();
+      this.transitionTo('store', this.currentModel.id);
+    }
 
   }
 });

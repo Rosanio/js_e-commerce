@@ -1,7 +1,52 @@
+$blue: #666A86;
+$blackish: #272932;
+$tan: #FFE4BF;
+$seafoam: #B2C9AB;
+$yellow: #F9EA9A;
+$seafoamdark: #73826E;
+
+
 .form-control {
   width: 80%;
 }
 
 img {
   max-width: 250px;
+}
+
+body {
+  background-color: $tan;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: $blackish;
+  color: $seafoam;
+}
+
+.navbar, .navbar-default {
+  margin-bottom: 0px;
+  background-color: $blackish;
+  color: $seafoam;
+  border: none;
+  border-bottom: $seafoam 1px solid;
+  border-radius: 0px;
+  .navbar-brand {
+    color: $seafoam;
+  }
+  .navbar-brand:hover, .navbar-brand:focus, .navbar-brand:active{
+    color: $seafoamdark;
+  }
+  .navbar-nav {
+    li {
+      a {
+        color: $seafoam;
+      }
+      a:hover, a:focus, a:active{
+        color: $seafoamdark;
+      }
+    }
+
+  }
+
 }

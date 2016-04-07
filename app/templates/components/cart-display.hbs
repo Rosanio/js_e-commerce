@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-7">
     <h4>Items: {{shoppingCart.cart.length}}</h4>
-    <h2>Total: ${{shoppingCart.subTotal}}</h2>
+    <h2>Total: ${{currency shoppingCart.subTotal}}</h2>
     {{#if onCartRoute}}
       <button type="button" class="btn btn-primary" {{action "checkout"}}>Check Out</button>
     {{else}}
