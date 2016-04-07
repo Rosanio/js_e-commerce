@@ -18,5 +18,9 @@ export default Ember.Service.extend({
       sum += this.get('cart')[i].get('cost');
     }
     return sum;
-  })
+  }),
+
+  empty() {
+    this.get('cart').setObjects([]);
+  }
 });

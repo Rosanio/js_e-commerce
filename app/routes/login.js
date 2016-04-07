@@ -3,10 +3,12 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   currentUser: Ember.inject.service(),
+  shoppingCart: Ember.inject.service(),
   model: function(){
     return Ember.RSVP.hash({
       allUsers: this.store.findAll('user'),
-      currentUser: this.get('currentUser')
+      currentUser: this.get('currentUser'),
+      shoppingCart: this.get('shoppingCart')
     });
   },
 
@@ -38,8 +40,10 @@ export default Ember.Route.extend({
       });
       if(routing === 'store'){
         this.transitionTo(routing, model.currentUser.client.get('id'));
+        model.shoppingCart.empty();
       } else if (routing === 'index') {
         this.transitionTo(routing);
+        model.shoppingCart.empty();
       } else {
         alert("You made a typo!"); // change this line
         this.transitionTo('login');

@@ -1,9 +1,25 @@
 <div class="container">
-  <div class="list-group">
-    {{#each model as |user|}}
-      {{#link-to 'store' user.id class="list-group-item"}}{{user.username}}{{/link-to}}
-    {{/each}}
+  <div class="row">
+    <div class="col-md-8">
+      <h4>Recently Added</h4>
+      <div class="list-group">
+        {{#each model.recentItems as |item|}}
+          {{item-tile class="list-group-item" item=item notInCart=true}}
+        {{/each}}
+      </div>
+      <hr>
+      {{cart-display}}
+    </div>
+    <div class="col-md-4">
+      <h4>All User Stores</h4>
+      <div class="list-group">
+        {{#each model.users as |user|}}
+          {{#link-to 'store' user.id class="list-group-item"}}{{user.username}}{{/link-to}}
+        {{/each}}
+      </div>
+    </div>
   </div>
+
 </div>
 
 {{!-- {{log currentUser.client}} --}}
